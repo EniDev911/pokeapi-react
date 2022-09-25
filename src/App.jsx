@@ -9,6 +9,7 @@ import Searcher from './components/Searcher'
 function App() {
 
   const [pokemones, setPokemones] = useState([]);
+  const [page, setPage] = useState("");
 
     /**
    * 
@@ -39,17 +40,18 @@ function App() {
     }catch(e){console.log(e.message)}
   }
 
-
+  /**
+   * 
+   */
   const fetchDataPokemones  = async () =>{
     try{
-      const data = await fetchPokemones(807, 0)
+      const data = await fetchPokemones(600, 0)
       const promises = data.results.map(async(pokemon) =>{
           return await fetchPokemon(pokemon.url)
         }
       )
-      const results = await Promise.all(promises)
-      setPokemones(await results)
-      console.log(results)
+      const results = await Promise.all(await promises)
+      setPokemones(results)
     } catch(err){console.log(err.message)}
 
   }

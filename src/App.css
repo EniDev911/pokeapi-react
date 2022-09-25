@@ -29,6 +29,7 @@ button {
   border: none;
   border-radius: 3px;
   font-size: 1.1em;
+  margin: 10px 0;
 }
 
 input:focus,

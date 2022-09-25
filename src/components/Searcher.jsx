@@ -5,8 +5,6 @@ const Searcher = () => {
   const [pokemon, setPokemon] = useState("");
   const [inputPokemon, setInputPokemon] = useState("");
 
-  // let pokemon = "pikachu"
-
   const fetchPokemon = async (pokemon) =>{
     try{
       let URI = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
